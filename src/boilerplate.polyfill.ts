@@ -53,13 +53,14 @@ Array.prototype.toPageDto = function (pageMetaDto: PageMetaDto) {
 };
 
 QueryBuilder.prototype.searchByString = function (q, columnNames) {
+  console.log(q);
   if (!q) {
     return this;
   }
   this.andWhere(
     new Brackets((qb) => {
       for (const item of columnNames) {
-        qb.orWhere(`${item} ILIKE :q`);
+        qb.orWhere(`${item} LIKE :q`);
       }
     }),
   );

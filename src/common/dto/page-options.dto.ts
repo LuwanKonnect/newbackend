@@ -38,7 +38,7 @@ export class PageOptionsDto {
   })
   @Type(() => Number)
   @IsInt()
-  @Min(10)
+  @Min(1)
   @Max(50)
   @IsOptional()
   readonly take: number = 10;
@@ -49,7 +49,6 @@ export class PageOptionsDto {
 
   @ApiPropertyOptional()
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   readonly q?: string;
 }
